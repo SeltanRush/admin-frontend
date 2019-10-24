@@ -8,6 +8,8 @@ import * as authActions from '../redux/actions';
 import { Input } from '../../../components/Input/Input';
 import { Button } from '../../../components/Button/Button';
 
+import './Auth.scss';
+
 interface IAuthProps {
   getToken: (username, password) => void;
 }

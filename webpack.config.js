@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const paths = {
   src: path.resolve(__dirname, 'src'),
@@ -33,7 +34,31 @@ const config = {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         exclude: /(node_modules)/,
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: '/img',
+              publicPath: '/img',
+            },
+          }],
+      },
     ]
   },
 
@@ -41,7 +66,11 @@ const config = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'bundle.[hash].css',
+      publicPath: './',
+    }),
   ],
 
   devServer: {

@@ -8,6 +8,8 @@ import { Api } from './api/Api';
 
 import App from './App/view/App';
 
+import './main.scss';
+
 const api: Api = new Api('https://frontapi.sibedge.com');
 
 const store = configureStore({ api });

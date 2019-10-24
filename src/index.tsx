@@ -10,7 +10,7 @@ import App from './App/view/App';
 
 import './main.scss';
 
-const api: Api = new Api('https://frontapi.sibedge.com');
+const api: Api = new Api('http://localhost:3000');
 
 const store = configureStore({ api });
 

@@ -11,19 +11,19 @@ import { Button } from '../../../components/Button/Button';
 import './Auth.scss';
 
 interface IAuthProps {
-  getToken: (username, password) => void;
+  signIn: (email, password) => void;
 }
 
-export const Auth: React.FC<IAuthProps> = ({ getToken }) => {
-  const [username, changeUsername] = React.useState<string>('');
+export const Auth: React.FC<IAuthProps> = ({ signIn }) => {
+  const [email, changeEmail] = React.useState<string>('');
   const [password, changePassword] = React.useState<string>('');
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    getToken(username, password);
+    signIn(email, password);
   };
 
-  const onChangeUsername = (e: React.FormEvent<HTMLInputElement>): void => changeUsername(e.currentTarget.value);
+  const onChangeEmail = (e: React.FormEvent<HTMLInputElement>): void => changeEmail(e.currentTarget.value);
   const onChangePassword = (e: React.FormEvent<HTMLInputElement>): void => changePassword(e.currentTarget.value);
 
   const b = block('auth');
@@ -32,13 +32,14 @@ export const Auth: React.FC<IAuthProps> = ({ getToken }) => {
     <h2 className={b('title')}>Sign in</h2>
     <form className={b('form')} onSubmit={onSubmit}>
       <div className={b('item')}>
-        <span className={b('item-title')}>Username</span>
+        <span className={b('item-title')}>Email</span>
         <div className={b('item-field')}>
           <Input
-            value={username}
-            onChange={onChangeUsername}
-            type="text"
-            name="username"
+            value={email}
+            onChange={onChangeEmail}
+            type="email"
+            name="email"
+            isRequired
           />
         </div>
       </div>
@@ -51,6 +52,7 @@ export const Auth: React.FC<IAuthProps> = ({ getToken }) => {
             onChange={onChangePassword}
             type="password"
             name="password"
+            isRequired
           />
         </div>
       </div>
@@ -64,7 +66,7 @@ export const Auth: React.FC<IAuthProps> = ({ getToken }) => {
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    getToken: authActions.getToken,
+    signIn: authActions.signIn,
   };
   return bindActionCreators(actions, dispatch);
 }

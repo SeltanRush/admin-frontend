@@ -8,7 +8,7 @@ interface IAction {
 
 export function reducer(state: AuthState = initialState, action: IAction) {
   switch (action.type) {
-    case actionTypes.GET_TOKEN:
+    case actionTypes.SIGN_IN_SUCCESS:
       return { ...state, isAuth: true, ...action.payload };
 
     default:

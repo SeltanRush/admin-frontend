@@ -4,20 +4,15 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import { configureStore } from './configureStore';
-import { Api } from './api/Api';
-
-import App from './App/view/App';
 
 import './main.scss';
 
-const api: Api = new Api('http://localhost:3000');
-
-const store = configureStore({ api });
+const store = configureStore({ });
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <span>Au</span>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),

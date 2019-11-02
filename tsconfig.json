@@ -5,5 +5,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "experimentalDecorators": true
-  }  
+  },
+  "include": [
+    "**/src/**/*", 
+  ]
 }

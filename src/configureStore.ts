@@ -3,29 +3,26 @@ import {
   applyMiddleware,
   combineReducers,
   createStore,
+  Store,
 } from 'redux';
 import persistState from 'redux-localstorage';
 import thunk from 'redux-thunk';
 
-import { reducer as authReducer } from './features/Auth/redux/reducer';
-
-export function configureStore(extra) {
+export function configureStore(extra): Store {
   const middlewares = [
     thunk.withExtraArgument(extra),
   ];
 
   const reducer = combineReducers({
-    auth: authReducer,
   });
 
-  const store = createStore(
+  return createStore(
     reducer,
     compose(
       applyMiddleware(...middlewares),
       persistState(['auth']),
+      // eslint-disable-next-line
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     ),
   );
-
-  return store;
 }

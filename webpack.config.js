@@ -78,6 +78,11 @@ const config = {
     stats: 'errors-only',
     publicPath: '/',
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+      },
+    },
   },
 }
 

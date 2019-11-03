@@ -18,6 +18,7 @@ export const AuthMenu: React.FC<IProps> = ({ activePath, menuItems }) => {
     <Link
       className={b('item', { active: activePath === item.link })}
       to={item.link}
+      key={item.link}
     >
       {item.text}
     </Link>

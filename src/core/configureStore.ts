@@ -7,10 +7,16 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-export function configureStore(): Store {
-  const middleware = thunk;
+import { IAppReduxState } from 'shared/types/app';
+import { Api } from 'services/api';
+
+import { reducer as authReducer } from 'features/auth';
+
+export function configureStore(extra: Api): Store<IAppReduxState> {
+  const middleware = thunk.withExtraArgument<Api>(extra);
 
   const reducer = combineReducers({
+    auth: authReducer,
   });
 
   return createStore(

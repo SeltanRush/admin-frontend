@@ -35,13 +35,19 @@ module.exports = {
 
     "react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
     "react/prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/button-has-type": 0,
     
     "import/prefer-default-export": 0,
+
+    "sonarjs/prefer-immediate-return": 0,
 
     "eol-last": 0,
     "object-curly-newline": 0,
     "arrow-parens": ['error', 'as-needed'],
     "linebreak-style": 0,
     "no-undef": 0,
+    "max-len": ["error", { code: 120 }],
+    "class-methods-use-this": 0,
 	}
 }

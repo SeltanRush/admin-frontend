@@ -6,15 +6,18 @@
   color: #ffffff;
 
   &__item {
-    display: block;
+    display: flex;
     font-size: 1.125rem;
     font-weight: bold;
     height: 100%;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid transparent;
 
     &_active {
-      text-decoration: underline;
+      border-bottom-color: #ffffff;
     }
   }
 }

@@ -13,16 +13,16 @@ const config = {
   context: paths.src,
   entry: {
     app: './index',
-    publicPath: '/',
   },
 
   output: {
     path: paths.dist,
     filename: '[name].bundle.[hash].js',
+    publicPath: '/',
   },
 
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, '..', 'src')],
+    modules: ['node_modules', path.resolve(__dirname, 'src')],
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 
@@ -65,7 +65,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './assets/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.[hash].css',

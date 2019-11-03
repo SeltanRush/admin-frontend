@@ -5,13 +5,10 @@ import {
   createStore,
   Store,
 } from 'redux';
-import persistState from 'redux-localstorage';
 import thunk from 'redux-thunk';
 
-export function configureStore(extra): Store {
-  const middlewares = [
-    thunk.withExtraArgument(extra),
-  ];
+export function configureStore(): Store {
+  const middleware = thunk;
 
   const reducer = combineReducers({
   });
@@ -19,8 +16,7 @@ export function configureStore(extra): Store {
   return createStore(
     reducer,
     compose(
-      applyMiddleware(...middlewares),
-      persistState(['auth']),
+      applyMiddleware(middleware),
       // eslint-disable-next-line
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     ),

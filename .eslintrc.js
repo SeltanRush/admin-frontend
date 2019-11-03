@@ -1,4 +1,4 @@
-{
+module.exports = {
 	"env": {
 		"browser": true,
 		"es6": true
@@ -11,7 +11,7 @@
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "airbnb",
+    "airbnb-typescript",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:jsx-a11y/recommended"
@@ -24,15 +24,24 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+        paths: ['./src'],
+        extensions: ['.ts', '.tsx'],
       }
     }
   },
 	"rules": {
-    "linebreak-style": 0,
+    "@typescript-eslint/interface-name-prefix": ['error', { prefixWithI: 'always' }],
+    "typescript-eslint/no-explicit-any": 0,
+
     "react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
     "react/prop-types": 0,
+    
     "import/prefer-default-export": 0,
-    "eol-last": 0
+
+    "eol-last": 0,
+    "object-curly-newline": 0,
+    "arrow-parens": ['error', 'as-needed'],
+    "linebreak-style": 0,
+    "no-undef": 0,
 	}
 }

@@ -13,12 +13,19 @@ export interface ISignUpInfo {
   email: string;
 }
 
+export interface ISignInInfo {
+  email: string;
+  password: string;
+}
+
 export type IActionProcessing = { type: 'auth/ACTION_PROCESSING' };
 
 export type IActionFailure = { type: 'auth/ACTION_FAILURE' };
 
 export type ISignUpSuccess = { type: 'auth/SIGN_UP_SUCCESS' };
 
-export type IActions = IActionProcessing | IActionFailure | ISignUpSuccess;
+export type iSignInSuccess = { type: 'auth/SIGN_IN_SUCCESS' };
+
+export type IActions = IActionProcessing | IActionFailure | ISignUpSuccess | iSignInSuccess;
 
 export type IThunkResult<R> = ThunkAction<R, IAuthState, Api, IActions>;

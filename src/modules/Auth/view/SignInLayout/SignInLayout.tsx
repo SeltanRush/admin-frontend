@@ -1,6 +1,7 @@
 import * as React from 'react';
 import block from 'bem-cn';
 
+import { SignIn } from 'features/auth';
 import { AuthLayout } from '../AuthLayout/AuthLayout';
 
 export const SignInLayout: React.FC = () => {
@@ -9,7 +10,7 @@ export const SignInLayout: React.FC = () => {
   return (
     <AuthLayout>
       <div className={b()}>
-        Sign in
+        <SignIn />
       </div>
     </AuthLayout>
   );

@@ -1,7 +1,6 @@
-import { ISignUpInfo } from 'features/auth/namespace';
 import * as NS from '../../namespace';
 
-function signUp(info: ISignUpInfo): NS.IThunkResult<void> {
+function signUp(info: NS.ISignUpInfo): NS.IThunkResult<void> {
   return async (dispatch, _getState, api): Promise<void> => {
     dispatch({ type: 'auth/ACTION_FAILURE' });
     const response = await api.auth.signUp(info);
@@ -13,6 +12,19 @@ function signUp(info: ISignUpInfo): NS.IThunkResult<void> {
   };
 }
 
+function signIn(info: NS.ISignInInfo): NS.IThunkResult<void> {
+  return async (dispatch, _getState, api): Promise<void> => {
+    dispatch({ type: 'auth/ACTION_PROCESSING' });
+    const response = await api.auth.signIn(info);
+    if (response.success) {
+      dispatch({ type: 'auth/SIGN_IN_SUCCESS' });
+    } else {
+      dispatch({ type: 'auth/ACTION_FAILURE' });
+    }
+  };
+}
+
 export {
   signUp,
+  signIn,
 };

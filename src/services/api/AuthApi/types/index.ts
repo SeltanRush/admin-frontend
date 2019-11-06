@@ -1,6 +1,6 @@
 interface ISignInResponse {
-  result: IUserResponse;
-  message: string;
+  data: IUserResponse;
+  success: boolean;
 }
 
 interface IUserResponse {

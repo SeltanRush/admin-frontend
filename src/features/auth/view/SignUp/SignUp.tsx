@@ -26,7 +26,9 @@ export const SignUp: React.FC = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(actions.signUp({ name, email, password, secretWord }));
+    if (password === repeatPassword) {
+      dispatch(actions.signUp({ name, email, password, secretWord }));
+    }
   };
 
   return (

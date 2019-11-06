@@ -2,7 +2,7 @@
 
 Мобильное веб приложение
 
-## Основные используемые технологии:
+## Основные используемые технологии
 - Typescript
 - React
 - Redux
@@ -13,13 +13,13 @@
 - React-Router
 
 
-## Для запуска на localhost:8000:
+## Для запуска на localhost:8000
 - `npm i`
 - `npm start`
 
-## Для production билда:
+## Для production билда
 - `npm i`
 - `npm run build`
 
-## Для проверки линтером ESLint:
+## Для проверки линтером ESLint
 - `npm run eslint`

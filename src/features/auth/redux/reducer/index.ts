@@ -10,7 +10,15 @@ export function reducer(state: NS.IAuthState = initialState, action: NS.IActions
       return { ...state, actionProcessing: false };
 
     case 'auth/SIGN_UP_SUCCESS':
-      return { ...state, isAuth: true };
+      return { ...state, actionProcessing: false };
+
+    case 'auth/SIGN_IN_SUCCESS':
+      return {
+        ...state,
+        user: action.payload,
+        isAuth: true,
+        actionProcessing: true,
+      };
 
     default:
       return { ...state };

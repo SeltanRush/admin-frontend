@@ -2,7 +2,7 @@ import * as React from 'react';
 import block from 'bem-cn';
 import { useDispatch } from 'react-redux';
 
-import { actions } from 'features/auth';
+import { actions } from 'features/auth/redux';
 
 import { useFormState } from 'shared/helpers/useFormState';
 import { Input } from 'components/Input/Input';

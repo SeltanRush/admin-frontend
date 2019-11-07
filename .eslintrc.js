@@ -41,6 +41,7 @@ module.exports = {
     "import/prefer-default-export": 0,
 
     "sonarjs/prefer-immediate-return": 0,
+    "sonarjs/no-duplicate-string": 0,
 
     "eol-last": 0,
     "object-curly-newline": 0,

@@ -1,20 +1,10 @@
+import { IUser } from 'features/auth/namespace';
+
 export interface ISignUpResponse {
-  data: { message: string };
-  success: boolean;
+  message: string;
 }
 
 export interface ISignInResponse {
-  data: {
-    message: string;
-    result: IUserResponse;
-  };
-  success: boolean;
-}
-
-interface IUserResponse {
-  createdOn: string;
-  name: string;
-  email: string;
-  token: string;
-  _id: string;
+  result: IUser;
+  message: string;
 }

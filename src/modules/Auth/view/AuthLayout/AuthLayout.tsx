@@ -1,6 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import block from 'bem-cn';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { selectors } from 'features/auth';
 
 import { authMenuItems } from 'modules/Auth/data/authMenuItems';
 import { AuthMenu } from './AuthMenu/AuthMenu';
@@ -16,8 +19,9 @@ type IProps = IOwnProps;
 const AuthLayout: React.FC<IProps> = ({ children }) => {
   const b = block('auth-layout');
   const location = useLocation();
+  const isAuth = useSelector(selectors.selectIsAuth);
 
-  return (
+  return isAuth ? <Redirect to="/main" /> : (
     <div className={b()}>
       <header className={b('header')}>
         <h2 className={b('title')}>Authorization</h2>

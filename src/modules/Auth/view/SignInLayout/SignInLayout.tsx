@@ -1,8 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import block from 'bem-cn';
 
 import { SignIn } from 'features/auth';
 import { AuthLayout } from '../AuthLayout/AuthLayout';
+
+import './SignInLayout.scss';
 
 export const SignInLayout: React.FC = () => {
   const b = block('sign-in-layout');

@@ -1,17 +1,23 @@
-import * as React from 'react';
+import React from 'react';
 
-type OnChangeState = (event: React.FormEvent<HTMLInputElement>) => void;
+interface IEventType<T> {
+  currentTarget: {
+    name: keyof T | never;
+  };
+}
 
-type UseFormState<T> = [T, OnChangeState];
+type OnChangeState<T> = (event: React.FormEvent<HTMLInputElement> & IEventType<T>) => void;
 
-type SetState = (name: string, value: string) => void;
+type UseFormState<T> = [T, OnChangeState<T>];
+
+type SetState<T> = (name: keyof T | never, value: string) => void;
 
 export const useFormState = <T>(initial: T): UseFormState<T> => {
   const [state, changeState] = React.useState(initial);
 
-  const setState: SetState = (name, value) => changeState({ ...state, [name]: value });
+  const setState: SetState<T> = (name, value) => changeState({ ...state, [name]: value });
 
-  const onChangeState: OnChangeState = ({ currentTarget: { name, value } }) => {
+  const onChangeState: OnChangeState<T> = ({ currentTarget: { name, value } }) => {
     if (name in state) {
       setState(name, value);
     } else {

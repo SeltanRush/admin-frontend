@@ -1,0 +1,15 @@
+.main-layout {
+  padding: 1rem;
+  box-sizing: border-box;
+
+  &__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  &__item-name {
+    font-weight: bold;
+  }
+}

@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios';
 
+import { NeverError } from 'shared/helpers/NeverError';
 import { HttpActions } from './HttpActions';
 import { IConfig, IApiResponse, IBaseResponse } from './types';
 
@@ -36,7 +37,7 @@ export class BaseApi {
         break;
 
       default:
-        throw new Error(`Method "${method} is not supported`);
+        throw new NeverError(method);
     }
 
     const { data, status } = response;

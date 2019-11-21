@@ -30,7 +30,6 @@
   "include": [
     "src/**/*",
     "webpack/**/*",
-    "server/**/*",
     "@types/**/*"
   ],
   "awesomeTypescriptLoaderOptions": {

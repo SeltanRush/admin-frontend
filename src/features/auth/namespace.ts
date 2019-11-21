@@ -4,7 +4,7 @@ import { Api } from 'services/api';
 export interface IAuthState {
   isAuth: boolean;
   actionProcessing: boolean;
-  user: IUser | {};
+  user: IUser;
 }
 
 export interface ISignUpInfo {

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import block from 'bem-cn';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { Input } from 'components/Input';
 import { Button } from 'components/Button';
@@ -20,6 +21,12 @@ export const SignUp: React.FC = () => {
     secretWord: '',
   });
 
+  const history = useHistory();
+
+  const goToLogin = useCallback(() => {
+    history.push('/auth/sign-in');
+  }, [history]);
+
   const { name, email, password, repeatPassword, secretWord } = state;
 
   const dispatch = useDispatch();
@@ -27,7 +34,7 @@ export const SignUp: React.FC = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (password === repeatPassword) {
-      dispatch(actions.signUp({ name, email, password, secretWord }));
+      dispatch(actions.signUp({ name, email, password, secretWord }, goToLogin));
     }
   };
 

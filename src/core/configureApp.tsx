@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { persistStore, Persistor } from 'redux-persist';
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { App } from 'modules/App';
 import { Api } from 'services/api';
 import * as modules from 'modules';
+
 
 import 'shared/styles/main.scss';
 
@@ -24,6 +27,7 @@ export function configureApp(): void {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
+          <ToastContainer />
           <App>{routes}</App>
         </BrowserRouter>
       </PersistGate>

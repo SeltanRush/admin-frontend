@@ -7,6 +7,7 @@ class HttpActions {
     const config: AxiosRequestConfig = {
       headers,
       withCredentials: false,
+      validateStatus: _status => true,
     };
 
     this.request = axios.create(config);
